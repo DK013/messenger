@@ -2,7 +2,7 @@
   "name": "messenger",
   "description": "A simple messsanger app",
   "version": "0.0.1",
-  "homepage": "",
+  "homepage": "https://github.com/DK013/messenger#readme",
   "main": "src",
   "keywords": [
     "feathers",
@@ -15,7 +15,9 @@
     "email": "chakraborty.deep013@gmail.com"
   },
   "contributors": [],
-  "bugs": {},
+  "bugs": {
+    "url": "https://github.com/DK013/messenger/issues"
+  },
   "directories": {
     "lib": "src",
     "test": "test/"
@@ -30,20 +32,31 @@
     "start": "node src/",
     "mocha": "mocha test/ --recursive"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DK013/messenger.git"
+  },
   "dependencies": {
     "body-parser": "^1.17.2",
     "compression": "^1.7.0",
     "cors": "^2.8.4",
     "feathers": "^2.1.7",
+    "feathers-authentication": "^1.2.7",
+    "feathers-authentication-hooks": "^0.1.4",
+    "feathers-authentication-jwt": "^0.3.2",
+    "feathers-authentication-local": "^0.4.3",
     "feathers-configuration": "^0.4.1",
     "feathers-errors": "^2.9.1",
     "feathers-hooks": "^2.0.2",
     "feathers-hooks-common": "^3.6.1",
-    "feathers-nedb": "^2.6.2",
+    "feathers-postgres": "^1.0.0",
     "feathers-rest": "^1.8.0",
+    "feathers-sequelize": "^2.2.0",
     "feathers-socketio": "^2.0.0",
     "helmet": "^3.8.1",
-    "nedb": "^1.8.0",
+    "pg": "^7.1.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.4.2",
     "serve-favicon": "^2.4.3",
     "winston": "^2.3.1"
   },

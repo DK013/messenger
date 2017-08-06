@@ -43,3 +43,18 @@ document.getElementById('send-message').addEventListener('submit', function(ev) 
   });
   ev.preventDefault();
 });
+
+////authentication////
+
+// Configure authentication
+client.configure(feathers.authentication({
+  storage: window.localStorage
+}));
+
+client.authenticate({
+  strategy: 'local',
+  email: 'admin@mail.com',
+  password: 'password'
+}).then(token => {
+  console.log('Admin is logged in');
+});
