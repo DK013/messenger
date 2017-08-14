@@ -27,11 +27,10 @@ module.exports = function (app) {
       type: Sequelize.STRING,
       allowNull: true
     },
-    online: {
+    avatar: {
       type: Sequelize.STRING,
       allowNull: true
     }
-  
   });
 
   users.associate = function (models) { // eslint-disable-line no-unused-vars

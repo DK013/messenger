@@ -8,6 +8,9 @@ module.exports = function (app) {
     text: {
       type: Sequelize.STRING,
       allowNull: false
+    },
+    userId: {
+      type: Sequelize.STRING
     }
   });
 
