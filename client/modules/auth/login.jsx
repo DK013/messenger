@@ -15,22 +15,13 @@ export default class Login extends React.Component {
   login() {
     const { email, password } = this.state;
     
-    return client.authenticate({
+    client.authenticate({
       strategy: 'local',
       email, password
-    }).then(response => {
-      return client.passport.verifyJWT(response.accessToken);
-    })
-    .then(payload => {
-      return client.service('users').get(payload.userId);
-    })
-    .then(user => {
-      console.log('User', client.get('user'));
     }).then(() => {
-      this.context.router.history.push('/');
+      this.context.router.history.push('/messages');
     }).catch(error => {this.setState({ error });});
-
-  }
+}
 
   render() {
       return(
@@ -46,11 +37,10 @@ export default class Login extends React.Component {
               <button type="button" className="btn btn-lg btn-primary btn-round" onClick={() => this.login()}>Sign in</button> <br/>
               <br/>
               <p>{this.state.error && this.state.error.message}</p>
-              <p className="mt-3"><Link to="/user/signup" className="text-white">Signup here!</Link> <br/>
-                <a href="sign-in6.html" className="">Forgot password?</a></p>
+              <p className="mt-3"><a href="#" className="">Forgot password?</a></p>
             </form>
             <br/>
-        </div>
+          </div>
       )
   }
 }

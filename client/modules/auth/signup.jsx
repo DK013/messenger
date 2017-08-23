@@ -45,16 +45,15 @@ export default class Signup extends React.Component {
                 <input type="email" name="email" className="form-control" placeholder="Email address" onChange={ev => this.updateField('email', ev)}/>
                 <br/>
                 <label className="sr-only">Password</label>
-                <input type="password" name="password" className="form-control" placeholder="Paassword" onChange={ev => this.updateField('password', ev)}/>
+                <input type="password" name="password" className="form-control" placeholder="Password" onChange={ev => this.updateField('password', ev)}/>
                 <br/>
                 <button type="button" className="btn btn-lg btn-primary btn-round" onClick={() => this.signup()}>Sign Up</button> 
                 <br/>
                 <p>{this.state.error && this.state.error.message}</p>
-                <p className="mt-3"><Link to="/user/login" className="text-white">Sign in here!</Link> <br/>
-                    <a href="" className="">Forgot password?</a></p>
+                <p className="mt-3"><a href="#" className="">Forgot password?</a></p>
             </form>
             <br/>
-            {this.state.isRegistered && <Redirect to='/user/login'/>}
+            {this.state.isRegistered && <Redirect to='/login'/>}
             </div>
       );
   }

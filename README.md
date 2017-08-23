@@ -5,8 +5,9 @@
 ## About
 
 This project uses :
-1. [Feathers](http://feathersjs.com). An open source web framework for building modern real-time applications.
-2. [React](https://facebook.github.io/react/). A javascript librery for building user interfaces.
+1. [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js.
+2. [React](https://facebook.github.io/react/) - A javascript librery for building user interfaces.
+3. [Passport](passportjs.org/) - Extremely flexible and modular authentication middleware for Node.js.
 
 ## Getting Started
 
@@ -36,7 +37,8 @@ Simply run `npm test` and all your tests in the `test/` directory will be run.
 ## Help
 
 For more information contact [Author](mailto:chakraborty.deep013@gmail.com).
-Official Website [Westenets Technologies](http://westenets.com).
+Official Website : [Westenets Technologies](http://westenets.com).
+Bug Report : [Issues](https://github.com/DK013/messenger/issues).
 
 ## Changelog
 __0.1.2__

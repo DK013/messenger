@@ -3,6 +3,7 @@ import UserList from '../users/UserList.jsx';
 import MessageList from '../messages/MessageList.jsx';
 import ComposeMessage from '../messages/ComposeMessage.jsx';
 import client from '../../backend/client.js';
+import { Redirect } from 'react-router-dom';
 
 //ChatApp
 export default class ChatApp extends React.Component {
@@ -13,8 +14,8 @@ export default class ChatApp extends React.Component {
     };
 
     componentDidMount() {
-        const messages = client.service('messages');
-        const users = client.service('users');
+        const messageService = client.service('messages');
+        const userService = client.service('users');
 
         client.authenticate().catch( () => {this.setState({ login: null });});
 
@@ -22,13 +23,13 @@ export default class ChatApp extends React.Component {
         client.on('authenticated', login => {
             // Get all users and messages
             Promise.all([
-            messages.find({
+            messageService.find({
                 query: {
                 $sort: { createdAt: -1 },
                 $limit: 25
                 }
             }),
-            users.find()
+            userService.find()
             ]).then( ([ messagePage, userPage ]) => {
             // We want the latest messages but in the reversed order
             var messages = messagePage.data.reverse();
@@ -46,24 +47,28 @@ export default class ChatApp extends React.Component {
         }));
     
         // Add new messages to the message list
-        messages.on('created', message => this.setState({
+        messageService.on('created', message => this.setState({
             messages: this.state.messages.concat(message)
         }));
     
         // Add new users to the user list
-        users.on('created', user => this.setState({
+        userService.on('created', user => this.setState({
             users: this.state.users.concat(user)
         }));
         
     }
 
     render() {
-    return (
-        <div className="flex flex-row flex-1 clear">
-            <UserList users={this.state.users} />
-            <MessageList users={this.state.users} messages={this.state.messages} />
-        </div>
-        );
+        if(this.state.login) {
+            return(
+                <div className="flex flex-row flex-1 clear">
+                <p>This is a dummy</p>
+                
+                </div>
+            );
+          } else {
+            return <Redirect to='/'/>;
+        }
     }
 }
 

@@ -3274,13 +3274,17 @@ header .navbar.sign-in-header {
   background: transparent;
 }
 .form-signup1.full_side {
-  margin-top: 0 !important;
+  margin-top: 12% !important;
 }
 
 .form-signin1.full_side .form-control {
   background: transparent;
   color: #ffffff;
   border: 1px solid #364269;
+}
+
+.form-signin1.full_side .form-control:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px transparent inset;
 }
 
 .form-signin1.full_side .input-group-addon {
