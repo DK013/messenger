@@ -1,5 +1,5 @@
 import React from 'react';
-import client from '../../backend/client.js';
+// import client from '../../backend/client.js';
 import { Redirect, Link } from 'react-router-dom';
 
 export default class Signup extends React.Component {
@@ -12,20 +12,20 @@ export default class Signup extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
-  signup() {
-    const { f_name, l_name, nickname, email, password } = this.state;
+  // signup() {
+  //   const { f_name, l_name, nickname, email, password } = this.state;
 
-    return client.service('users').create({
-      f_name: f_name,
-      l_name: l_name,
-      nickname: nickname,
-      email: email,
-      password: password
-    }).then(() =>{
-      this.setState({ isRegistered: true });
-      alert("Registration Successful");
-    }).catch(error => {this.setState({ error });});
-  }
+  //   return client.service('users').create({
+  //     f_name: f_name,
+  //     l_name: l_name,
+  //     nickname: nickname,
+  //     email: email,
+  //     password: password
+  //   }).then(() =>{
+  //     this.setState({ isRegistered: true });
+  //     alert("Registration Successful");
+  //   }).catch(error => {this.setState({ error });});
+  // }
 
   render() {
       return(
@@ -53,7 +53,6 @@ export default class Signup extends React.Component {
                 <p className="mt-3"><a href="#" className="">Forgot password?</a></p>
             </form>
             <br/>
-            {this.state.isRegistered && <Redirect to='/login'/>}
             </div>
       );
   }

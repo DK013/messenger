@@ -1,5 +1,5 @@
 import React from 'react';
-import client from '../../backend/client.js';
+// import client from '../../backend/client.js';
 import { Redirect, Link, withRouter } from 'react-router-dom';
 
 export default class Login extends React.Component {
@@ -12,16 +12,16 @@ export default class Login extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
-  login() {
-    const { email, password } = this.state;
+  // login() {
+  //   const { email, password } = this.state;
     
-    client.authenticate({
-      strategy: 'local',
-      email, password
-    }).then(() => {
-      this.context.router.history.push('/messages');
-    }).catch(error => {this.setState({ error });});
-}
+  //   client.authenticate({
+  //     strategy: 'local',
+  //     email, password
+  //   }).then(() => {
+  //     this.context.router.history.push('/messages');
+  //   }).catch(error => {this.setState({ error });});
+  // }
 
   render() {
       return(

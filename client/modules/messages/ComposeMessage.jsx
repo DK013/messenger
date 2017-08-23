@@ -1,5 +1,5 @@
 import React from 'react';
-import client from '../../backend/client.js';
+// import client from '../../backend/client.js';
 
 export default class ComposeMessage extends React.Component {
     constructor(props) {
@@ -15,20 +15,20 @@ export default class ComposeMessage extends React.Component {
         this.setState({text: ev.target.value});
     }
 
-    sendMessage(ev) {
-        if (this.state.text.length > 0) {
-        const messageService = client.service('messages');
-        // client.authenticate().then( () => {
-            messageService.create({
-            text: this.state.text
-            }).then(() => this.setState({text: ''}));
+    // sendMessage(ev) {
+    //     if (this.state.text.length > 0) {
+    //     const messageService = client.service('messages');
+    //     client.authenticate().then( () => {
+    //         messageService.create({
+    //         text: this.state.text
+    //         }).then(() => this.setState({text: ''}));
 
     // }).catch( (err) => {
     //         console.error(err);
     //     });
-         }
+    //      }
 
-    };
+    // };
 
     render() {
         return( 

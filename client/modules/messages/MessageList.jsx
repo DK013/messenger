@@ -1,40 +1,40 @@
 import React from 'react';
-import client from '../../backend/client.js';
-import moment from 'moment';
+// import client from '../../backend/client.js';
+// import moment from 'moment';
 
 export default class MessageList extends React.Component {
 
     
-    sendMessage(ev) {
-        const input = ev.target.querySelector('[name="text"]');
-        const text = input.value.trim();
+    // sendMessage(ev) {
+    //     const input = ev.target.querySelector('[name="text"]');
+    //     const text = input.value.trim();
     
-        if(text) {
-          client.service('messages').create({ text }).then(() => {
-            input.value = '';
-          });
-        }
+    //     if(text) {
+    //       client.service('messages').create({ text }).then(() => {
+    //         input.value = '';
+    //       });
+    //     }
     
-        ev.preventDefault();
-    }
+    //     ev.preventDefault();
+    // }
         
-    scrollToBottom() {
-        const chat = this.chat;
+    // scrollToBottom() {
+    //     const chat = this.chat;
     
-        chat.scrollTop = chat.scrollHeight - chat.clientHeight;
-    }
+    //     chat.scrollTop = chat.scrollHeight - chat.clientHeight;
+    // }
     
-    componentDidMount() {
-        this.scrollToBottom = this.scrollToBottom.bind(this);
+    // componentDidMount() {
+    //     this.scrollToBottom = this.scrollToBottom.bind(this);
     
-        client.service('messages').on('created', this.scrollToBottom);
-        this.scrollToBottom();
-    }
+    //     client.service('messages').on('created', this.scrollToBottom);
+    //     this.scrollToBottom();
+    // }
     
-    componentWillUnmount() {
-        // Clean up listeners
-        client.service('messages').removeListener('created', this.scrollToBottom);
-    }
+    // componentWillUnmount() {
+    //     // Clean up listeners
+    //     client.service('messages').removeListener('created', this.scrollToBottom);
+    // }
 
     render() {
         const { messages, users } = this.props;

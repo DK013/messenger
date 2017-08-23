@@ -3,7 +3,7 @@ import {BrowserRouter as Router, Link, Route, Redirect} from 'react-router-dom';
 import ToggleDisplay from 'react-toggle-display';
 import Login from '../auth/login.jsx';
 import Signup from '../auth/signup.jsx';
-import client from '../../backend/client';
+// import client from '../../backend/client';
 
 
 export default class UserPage extends React.Component {
@@ -12,12 +12,12 @@ export default class UserPage extends React.Component {
         this.state = { show: true };
       }
     
-    componentDidMount() {
-        client.authenticate().catch(() => {this.setState({ login: null });});
-        client.on('authenticated', () => {
-          this.context.router.history.push('/messages');
-        });
-    }
+    // componentDidMount() {
+    //     client.authenticate().catch(() => {this.setState({ login: null });});
+    //     client.on('authenticated', () => {
+    //       this.context.router.history.push('/messages');
+    //     });
+    // }
 
     handleClick() {
         this.setState({
